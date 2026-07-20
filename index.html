@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Juan Pablo Arreola — Portafolio de Agentes de IA</title>
+<meta name="description" content="Portafolio técnico de Juan Pablo Arreola: agentes de IA y automatización en producción para negocios reales.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%A4%96%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --ink: #14212e;
+    --ink-soft: #2a3b4a;
+    --paper: #f4f6f5;
+    --paper-raised: #ffffff;
+    --line: #c9d2d3;
+    --accent: #1d6fa5;
+    --accent-soft: #e7eff4;
+    --amber: #b76a1c;
+    --amber-soft: #f6e9d8;
+    --muted: #5b6670;
+    --radius: 3px;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e8ecee;
+      --ink-soft: #c3ccd1;
+      --paper: #101820;
+      --paper-raised: #16202a;
+      --line: #2b3944;
+      --accent: #62aad8;
+      --accent-soft: #1c2e3a;
+      --amber: #e3a052;
+      --amber-soft: #33281a;
+      --muted: #8b98a1;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e8ecee;
+    --ink-soft: #c3ccd1;
+    --paper: #101820;
+    --paper-raised: #16202a;
+    --line: #2b3944;
+    --accent: #62aad8;
+    --accent-soft: #1c2e3a;
+    --amber: #e3a052;
+    --amber-soft: #33281a;
+    --muted: #8b98a1;
+  }
+  :root[data-theme="light"] {
+    --ink: #14212e;
+    --ink-soft: #2a3b4a;
+    --paper: #f4f6f5;
+    --paper-raised: #ffffff;
+    --line: #c9d2d3;
+    --accent: #1d6fa5;
+    --accent-soft: #e7eff4;
+    --amber: #b76a1c;
+    --amber-soft: #f6e9d8;
+    --muted: #5b6670;
+  }
+
+  * { box-sizing: border-box; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: ui-sans-serif, "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 28px 96px; }
+
+  .display {
+    font-family: ui-serif, "Iowan Old Style", Charter, "Palatino Linotype", Georgia, serif;
+    text-wrap: balance;
+  }
+
+  .mono {
+    font-family: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    padding: 64px 0 40px;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 34px 34px;
+    background-position: center top;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 0%, black 62%, transparent 100%);
+    opacity: 0.9;
+  }
+  .hero-inner { position: relative; z-index: 1; }
+  .hero-content { padding-top: 8px; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    padding: 5px 10px;
+    border-radius: var(--radius);
+  }
+
+  h1.name {
+    margin: 20px 0 6px;
+    font-size: clamp(2.1rem, 5vw, 3.1rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .role {
+    margin: 0 0 22px;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+  }
+
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .contact-row span { white-space: nowrap; }
+  .contact-row a { color: var(--ink-soft); text-decoration-color: var(--line); }
+
+  /* ---------- DIAGRAM STRIP ---------- */
+  .diagram {
+    margin-top: 40px;
+    border: 1px solid var(--line);
+    background: var(--paper-raised);
+    border-radius: var(--radius);
+    padding: 22px 20px;
+    overflow-x: auto;
+  }
+  .diagram-label {
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  .flow {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    min-width: 560px;
+  }
+  .node {
+    font-family: ui-monospace, monospace;
+    font-size: 13px;
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .node.emph { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+  .conn {
+    flex: 1 1 auto;
+    height: 1px;
+    min-width: 20px;
+    position: relative;
+    background: repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 10px);
+  }
+  .conn::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: 50%;
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid var(--muted);
+    border-bottom: 1.5px solid var(--muted);
+    transform: translateY(-50%) rotate(-45deg);
+  }
+  .conn.flowing::before {
+    content: "";
+    position: absolute;
+    top: -1.5px;
+    left: 0;
+    width: 10px;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--accent);
+    animation: travel 3.2s linear infinite;
+  }
+  @keyframes travel {
+    0% { left: -10px; opacity: 0; }
+    8% { opacity: 1; }
+    92% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section { margin-top: 68px; }
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 12px;
+  }
+  .section-num {
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .section-head h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .section-sub {
+    color: var(--muted);
+    max-width: 62ch;
+    margin: 14px 0 30px;
+  }
+
+  /* ---------- PROJECT CARDS ---------- */
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--paper-raised);
+    padding: 26px 26px 24px;
+    margin-bottom: 20px;
+  }
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .card-client {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0 0 3px;
+  }
+  .card-role {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .metric {
+    font-family: ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--amber);
+    background: var(--amber-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 5px 9px;
+    white-space: nowrap;
+  }
+  .card-desc {
+    margin: 16px 0 0;
+    color: var(--ink-soft);
+    max-width: 68ch;
+  }
+  .card-flow {
+    margin-top: 16px;
+    font-family: ui-monospace, monospace;
+    font-size: 12.5px;
+    color: var(--muted);
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
+  }
+  .card-flow .arrow { color: var(--line); margin: 0 6px; }
+  .card-flow .hop { color: var(--accent); }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 16px;
+  }
+  .tag {
+    font-family: ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 3px 8px;
+    background: var(--paper);
+  }
+
+  /* ---------- COMPACT LIST (personal projects) ---------- */
+  .mini-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .mini-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 18px 16px;
+    background: var(--paper-raised);
+  }
+  .mini-card h3 {
+    margin: 0 0 8px;
+    font-size: 0.98rem;
+  }
+  .mini-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skill-table {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .skill-row {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    border-top: 1px solid var(--line);
+  }
+  .skill-row:first-child { border-top: none; }
+  .skill-row dt {
+    padding: 14px 16px;
+    font-family: ui-monospace, monospace;
+    font-size: 12px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+  }
+  .skill-row dd {
+    margin: 0;
+    padding: 14px 16px;
+    color: var(--ink-soft);
+  }
+  @media (max-width: 560px) {
+    .skill-row { grid-template-columns: 1fr; }
+    .skill-row dt { padding-bottom: 6px; }
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    margin-top: 80px;
+    padding-top: 28px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  footer .mono { font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+
+<div class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-content">
+      <span class="eyebrow">Portafolio técnico · Agentes de IA &amp; Automatización</span>
+      <h1 class="name display">Juan Pablo Arreola</h1>
+      <p class="role">Diseño, desarrollo y despliego en producción agentes conversacionales y automatizaciones para negocios reales — desde el flujo de conversación hasta la integración con el ERP.</p>
+      <div class="contact-row">
+        <span>Guadalajara, Jal. · disponibilidad total de reubicación</span>
+        <a href="mailto:juanpablo.am93@gmail.com">juanpablo.am93@gmail.com</a>
+        <span>33 1321 5861</span>
+        <span>arrmaia.com</span>
+      </div>
+    </div>
+
+    <div class="diagram">
+      <p class="diagram-label">Arquitectura típica de un agente ARRMA IA</p>
+      <div class="flow">
+        <span class="node">WhatsApp / Telegram</span>
+        <span class="conn flowing"></span>
+        <span class="node emph">n8n</span>
+        <span class="conn flowing"></span>
+        <span class="node emph">LLM (GPT‑4 / Claude)</span>
+        <span class="conn flowing"></span>
+        <span class="node">ERP / API / MercadoLibre</span>
+        <span class="conn flowing"></span>
+        <span class="node">Supabase</span>
+        <span class="conn flowing"></span>
+        <span class="node">Respuesta al cliente</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <section class="section" id="proyectos">
+    <div class="section-head">
+      <span class="section-num mono">01</span>
+      <h2>Proyectos para clientes</h2>
+    </div>
+    <p class="section-sub">Relaciones activas bajo <strong>ARRMA IA</strong>, la empresa que fundé en 2023. Cada agente está en producción, resolviendo un proceso real de negocio.</p>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Cliente — Retail de refacciones y accesorios</p>
+          <p class="card-role">Agente de cotización y ventas multicanal — "Te Lo Consigo"</p>
+        </div>
+        <span class="metric">ROI proy. 450% · −80% tiempo de respuesta</span>
+      </div>
+      <p class="card-desc">Atiende WhatsApp, Facebook e Instagram 24/7: identifica el producto solicitado, consulta inventario y precio diferenciado (cliente registrado vs. particular) en el ERP interno del cliente, busca referencia en MercadoLibre vía su MCP y entrega una cotización con folio único. Evolucionado en dos iteraciones posteriores, incluida una versión "Express" entregada en 48 horas.</p>
+      <div class="card-flow">
+        <span class="hop">Respond.io</span><span class="arrow">→</span><span class="hop">n8n</span><span class="arrow">→</span><span class="hop">GPT‑4</span><span class="arrow">→</span><span class="hop">API Épico + MCP MercadoLibre</span><span class="arrow">→</span><span class="hop">Supabase</span><span class="arrow">→</span><span class="hop">OpenPay</span>
+      </div>
+      <div class="tags">
+        <span class="tag">n8n</span><span class="tag">GPT-4</span><span class="tag">MCP</span><span class="tag">Respond.io</span><span class="tag">Supabase</span><span class="tag">ERP interno</span><span class="tag">OpenPay</span><span class="tag">Servidor Hetzner</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">ARRMA IA — infraestructura interna</p>
+          <p class="card-role">Servidor MCP propio · Google Calendar</p>
+        </div>
+      </div>
+      <p class="card-desc">Servidor MCP propio que expone herramientas de Google Calendar (consulta de disponibilidad, creación de eventos) como capacidades reutilizables. Varios agentes de distintos clientes lo consumen para agendar y validar citas en tiempo real, en vez de reimplementar la integración en cada proyecto.</p>
+      <div class="card-flow">
+        <span class="hop">Agente (n8n / LangChain)</span><span class="arrow">→</span><span class="hop">Servidor MCP propio</span><span class="arrow">→</span><span class="hop">Google Calendar API</span>
+      </div>
+      <div class="tags">
+        <span class="tag">MCP server</span><span class="tag">Google Calendar API</span><span class="tag">Node.js</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Salón de belleza</p>
+          <p class="card-role">Agente de voz conversacional (proyecto experimental)</p>
+        </div>
+      </div>
+      <p class="card-desc">Agente que atiende llamadas telefónicas: resuelve dudas sobre el negocio y agenda citas, validando disponibilidad en tiempo real antes de confirmar.</p>
+      <div class="card-flow">
+        <span class="hop">Llamada telefónica</span><span class="arrow">→</span><span class="hop">Agente de voz (ElevenLabs)</span><span class="arrow">→</span><span class="hop">MCP Google Calendar</span><span class="arrow">→</span><span class="hop">Confirmación</span>
+      </div>
+      <div class="tags">
+        <span class="tag">ElevenLabs</span><span class="tag">Voz conversacional</span><span class="tag">MCP</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Cliente — Gestoría de trámites administrativos</p>
+          <p class="card-role">Tres automatizaciones de trámites administrativos</p>
+        </div>
+      </div>
+      <p class="card-desc">Agente por Telegram que recibe CURP o RFC y solicita la Constancia de Situación Fiscal directamente en el sistema del SAT. Agente de WhatsApp (YCloud) para atención a clientes y agendamiento de citas. Automatización de citas para trámites vehiculares ante la Recaudadora de Jalisco (cambio de placas, cambio de propietario, placas nuevas).</p>
+      <div class="card-flow">
+        <span class="hop">Telegram / WhatsApp</span><span class="arrow">→</span><span class="hop">n8n</span><span class="arrow">→</span><span class="hop">Sistema SAT / Recaudadora</span><span class="arrow">→</span><span class="hop">Calendario</span>
+      </div>
+      <div class="tags">
+        <span class="tag">n8n</span><span class="tag">Telegram Bot API</span><span class="tag">YCloud</span><span class="tag">Web scraping</span><span class="tag">Google Calendar</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Arrma Seguros</p>
+          <p class="card-role">Adquisición, calificación de leads y CRM propio</p>
+        </div>
+      </div>
+      <p class="card-desc">Landing page conectada a campañas de Meta Ads → WhatsApp, donde un agente califica al lead y agenda videollamada de asesoría. Automatización que investiga, redacta y publica contenido sobre seguros en redes sociales sin intervención manual. En paralelo, desarrollo <strong>Polux</strong>, un CRM propio sobre Supabase para cartera de pólizas, con recordatorios de pago/renovación y captura de pólizas asistida por IA (en desarrollo).</p>
+      <div class="card-flow">
+        <span class="hop">Meta Ads</span><span class="arrow">→</span><span class="hop">Landing page</span><span class="arrow">→</span><span class="hop">WhatsApp</span><span class="arrow">→</span><span class="hop">Agente de calificación</span><span class="arrow">→</span><span class="hop">Polux CRM (Supabase)</span>
+      </div>
+      <div class="tags">
+        <span class="tag">n8n</span><span class="tag">Supabase</span><span class="tag">Meta Ads</span><span class="tag">Google Analytics</span><span class="tag">Meta Pixel</span><span class="tag">Generación de imagen IA</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Arrma Seguros</p>
+          <p class="card-role">Agente RAG de pólizas — gastos médicos mayores</p>
+        </div>
+        <span class="metric">RAG · búsqueda vectorial</span>
+      </div>
+      <p class="card-desc">Base de datos vectorial cargada con las condiciones generales del seguro de gastos médicos mayores. Un agente construido con LangChain resuelve dudas reales de cobertura, uso y periodos de espera citando la póliza específica del cliente, en lugar de respuestas genéricas.</p>
+      <div class="card-flow">
+        <span class="hop">Documento de póliza</span><span class="arrow">→</span><span class="hop">Chunking + embeddings</span><span class="arrow">→</span><span class="hop">Supabase pgvector / Pinecone</span><span class="arrow">→</span><span class="hop">Agente LangChain</span><span class="arrow">→</span><span class="hop">WhatsApp</span>
+      </div>
+      <div class="tags">
+        <span class="tag">LangChain</span><span class="tag">RAG</span><span class="tag">Supabase pgvector</span><span class="tag">Pinecone</span><span class="tag">Docker</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">ARRMA IA (marca propia)</p>
+          <p class="card-role">Captación y calificación de clientes de consultoría</p>
+        </div>
+      </div>
+      <p class="card-desc">Landing page propia para campañas de Meta que dirige tráfico a un agente de WhatsApp (YCloud), el cual clasifica leads y agenda videollamadas de consultoría para clientes nuevos.</p>
+      <div class="card-flow">
+        <span class="hop">Meta Ads</span><span class="arrow">→</span><span class="hop">Landing page</span><span class="arrow">→</span><span class="hop">WhatsApp / YCloud</span><span class="arrow">→</span><span class="hop">Agenda de videollamada</span>
+      </div>
+      <div class="tags">
+        <span class="tag">n8n</span><span class="tag">YCloud</span><span class="tag">Google Analytics</span><span class="tag">Meta Pixel</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <div>
+          <p class="card-client">Cliente — Estudio de fotografía</p>
+          <p class="card-role">Landing page de captación de leads</p>
+        </div>
+      </div>
+      <p class="card-desc">Página de aterrizaje para campañas de Meta que canaliza a los interesados directamente a WhatsApp, con tráfico monitoreado vía Google Analytics y Meta Pixel.</p>
+      <div class="card-flow">
+        <span class="hop">Meta Ads</span><span class="arrow">→</span><span class="hop">Landing page</span><span class="arrow">→</span><span class="hop">WhatsApp</span>
+      </div>
+      <div class="tags">
+        <span class="tag">HTML/CSS/JS</span><span class="tag">Google Analytics</span><span class="tag">Meta Pixel</span>
+      </div>
+    </article>
+  </section>
+
+  <section class="section" id="personales">
+    <div class="section-head">
+      <span class="section-num mono">02</span>
+      <h2>Proyectos personales</h2>
+    </div>
+    <p class="section-sub">Agentes construidos por iniciativa propia — el terreno donde probé arquitecturas antes de llevarlas a clientes.</p>
+
+    <div class="mini-grid">
+      <div class="mini-card">
+        <h3>Control de gastos de un adulto mayor</h3>
+        <p>Agente por Telegram que registra ingresos y egresos, y genera reportes semanales/mensuales por categoría (médicos, alimentación, transporte, servicios, cuidados) para los familiares a cargo.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Finanzas personales multimodales</h3>
+        <p>Agente por Telegram que acepta texto, imagen, audio o PDF para registrar gastos diarios y clasificar consumo vs. ahorro e inversión.</p>
+      </div>
+      <div class="mini-card">
+        <h3>Buscador de empleo automatizado</h3>
+        <p>Bot que hace scraping diario de Indeed y LinkedIn, filtra por experiencia, salario y prestaciones, y envía solo las mejores vacantes por Telegram. Usado hasta lograr la contratación del destinatario.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stack">
+    <div class="section-head">
+      <span class="section-num mono">03</span>
+      <h2>Stack técnico</h2>
+    </div>
+    <dl class="skill-table">
+      <div class="skill-row">
+        <dt>IA &amp; LLMs</dt>
+        <dd>OpenAI (GPT-4 y modelos generales), Anthropic Claude / Claude Code, Google Gemini, Qwen, Kimi, Grok, GitHub Copilot, DeepSeek, Cosmos AI, OpenRouter, Perplexity, Hermes AI</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Frameworks de agentes</dt>
+        <dd>LangChain (JavaScript/TypeScript), diseño de agentes con memoria y herramientas (tools)</dd>
+      </div>
+      <div class="skill-row">
+        <dt>MCP</dt>
+        <dd>Desarrollo de servidor MCP propio (Google Calendar), consumo de MCPs de terceros (MercadoLibre)</dd>
+      </div>
+      <div class="skill-row">
+        <dt>RAG &amp; vectores</dt>
+        <dd>Supabase (pgvector), Pinecone, Qdrant, embeddings, chunking de documentos</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Orquestación</dt>
+        <dd>n8n (nivel avanzado), Make, diseño de workflows multicanal, manejo de errores, monitoreo</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Desarrollo</dt>
+        <dd>Python, JavaScript, SQL, JSON, APIs REST, Git, fundamentos de OAuth/JWT</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Scraping &amp; navegador</dt>
+        <dd>Puppeteer, Apify, Chromium headless por script</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Datos, backend &amp; infra</dt>
+        <dd>Supabase, PostgreSQL, Airtable, Redis, Docker</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Integraciones</dt>
+        <dd>WhatsApp Business API (YCloud, Respond.io, Evolution API), Meta (Facebook/Instagram), CRMs (Kommo, GoHighLevel, Chatwoot, ManyChat), Google Workspace (Gmail, Sheets, Docs, Calendar), OpenPay, ERPs, API de MercadoLibre</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Voz &amp; multimedia</dt>
+        <dd>ElevenLabs (texto-a-voz y agentes de voz conversacionales); generación de imagen y video con Google Flow, Nano Banana, Flux, Google Veo, Sora, Grok y ChatGPT</dd>
+      </div>
+      <div class="skill-row">
+        <dt>Analítica</dt>
+        <dd>Google Analytics, Meta Pixel, campañas Meta Ads</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer>
+    <span class="mono">ARRMA IA — Automatización Inteligente para Empresas</span>
+    <span>Juan Pablo Arreola · juanpablo.am93@gmail.com · 33 1321 5861</span>
+  </footer>
+</div>
+</body>
+</html>
