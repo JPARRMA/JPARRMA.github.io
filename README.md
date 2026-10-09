@@ -4,7 +4,7 @@ Portafolio técnico de agentes de IA y automatización, con arquitecturas, stack
 
 **Sitio publicado:** se activa con GitHub Pages a partir de `index.html` en este mismo repo (ver instrucciones abajo).
 
-**CV:** disponible bajo solicitud · **Contacto:** juanpablo.am93@gmail.com · 33 1321 5861
+**CV:** disponible bajo solicitud · **Contacto:** juanpablo.arreola@arrmaia.com · 33 1321 5861
 
 ---
 
